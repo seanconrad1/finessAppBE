@@ -10,3 +10,4 @@
 # User.create(name:'sean', weight:155, age:26, gender:'male')
 # Exercise.create(name:'Dumbbell Bicep Curl', weight:90, reps: 5, sets: 3, equipment:'dumbbell', muscle_group:'bicep', user_id:1)
 # Workout.create(user_id:1, exercise_id:1)
+# Stat.create(weight: 144, mood:'good', notes:'yo', date: 11/03/18, user_id:1)
