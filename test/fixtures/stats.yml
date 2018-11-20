@@ -2,14 +2,14 @@
 
 one:
   weight: 1
-  mood,: MyString
-  notes,: MyString
-  date: 2018-11-17
+  mood: MyString
+  notes: MyString
+  date: 2018-11-20
   user: one
 
 two:
   weight: 1
-  mood,: MyString
-  notes,: MyString
-  date: 2018-11-17
+  mood: MyString
+  notes: MyString
+  date: 2018-11-20
   user: two

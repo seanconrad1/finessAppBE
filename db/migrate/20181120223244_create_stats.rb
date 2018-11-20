@@ -6,6 +6,7 @@ class CreateStats < ActiveRecord::Migration[5.2]
       t.string :notes
       t.date :date
       t.references :user, foreign_key: true
+
       t.timestamps
     end
   end

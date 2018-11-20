@@ -7,7 +7,7 @@ class CreateExercises < ActiveRecord::Migration[5.2]
       t.integer :sets
       t.string :equipment
       t.string :muscle_group
-      t.references :user, foreign_key: true
+
       t.timestamps
     end
   end

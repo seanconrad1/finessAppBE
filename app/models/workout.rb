@@ -1,4 +1,4 @@
 class Workout < ApplicationRecord
-  belongs_to :user, required: true
+  belongs_to :weekday
   belongs_to :exercise
 end

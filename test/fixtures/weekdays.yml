@@ -2,12 +2,8 @@
 
 one:
   name: MyString
-  weight: 1
-  age: 1
-  gender: MyString
+  user: one
 
 two:
   name: MyString
-  weight: 1
-  age: 1
-  gender: MyString
+  user: two

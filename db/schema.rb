@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_17_234817) do
+ActiveRecord::Schema.define(version: 2018_11_20_223244) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "exercises", force: :cascade do |t|
     t.string "name"
@@ -19,10 +22,8 @@ ActiveRecord::Schema.define(version: 2018_11_17_234817) do
     t.integer "sets"
     t.string "equipment"
     t.string "muscle_group"
-    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_exercises_on_user_id"
   end
 
   create_table "stats", force: :cascade do |t|
@@ -30,7 +31,7 @@ ActiveRecord::Schema.define(version: 2018_11_17_234817) do
     t.string "mood"
     t.string "notes"
     t.date "date"
-    t.integer "user_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_stats_on_user_id"
@@ -45,13 +46,25 @@ ActiveRecord::Schema.define(version: 2018_11_17_234817) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "weekdays", force: :cascade do |t|
+    t.string "day"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_weekdays_on_user_id"
+  end
+
   create_table "workouts", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "exercise_id"
+    t.bigint "weekday_id"
+    t.bigint "exercise_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["exercise_id"], name: "index_workouts_on_exercise_id"
-    t.index ["user_id"], name: "index_workouts_on_user_id"
+    t.index ["weekday_id"], name: "index_workouts_on_weekday_id"
   end
 
+  add_foreign_key "stats", "users"
+  add_foreign_key "weekdays", "users"
+  add_foreign_key "workouts", "exercises"
+  add_foreign_key "workouts", "weekdays"
 end

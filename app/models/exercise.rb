@@ -1,5 +1,5 @@
 class Exercise < ApplicationRecord
-  has_many :workouts, dependent: :destroy
-  belongs_to :user
-  has_many :users, through: :workouts
+  has_many :workouts
+  has_many :weekdays, through: :workouts
+  has_many :users, through: :weekdays
 end
